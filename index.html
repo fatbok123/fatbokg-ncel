@@ -4,116 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FATBOK TV | GİRİŞ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;800&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050508;
-            --accent: #00ffff; /* Neon Turkuaz */
-            --text: #ffffff;
+            --bg-color: #000b18; /* Neon Koyu Mavi Derinlik */
+            --neon-blue: #00f2ff;
+            --glass: rgba(0, 242, 255, 0.03);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow: hidden;
             position: relative;
         }
 
-        /* Arka Plan Hafif Efekt */
+        /* Arka Plan Modernist Işık Oyunları */
         body::before {
             content: '';
             position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, #001f3f 0%, transparent 50%);
+            animation: pulseBg 8s infinite alternate;
             z-index: -1;
         }
 
-        /* Logo Alanı */
-        .logo-container {
-            margin-bottom: 30px;
-        }
-
-        .main-logo {
-            font-size: 6rem;
-            font-weight: 800;
-            letter-spacing: -4px;
+        /* Üst Başlık - GÜNCEL ADRES İÇİN TIKLAYIN */
+        .header-text {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 10px;
             text-transform: uppercase;
-            background: linear-gradient(to bottom, #fff 0%, #444 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+            margin-bottom: 40px;
+            text-align: center;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
         }
 
-        /* Access Button - FATBOK TV */
-        .access-btn {
-            background: transparent;
-            color: var(--accent);
-            padding: 25px 80px;
-            border-radius: 12px;
+        /* DEVASA FATBOK TV BUTONU */
+        .main-button {
+            position: relative;
+            background: var(--glass);
+            color: var(--neon-blue);
             text-decoration: none;
+            padding: 40px 100px;
+            font-size: 4.5rem; /* Devasa boyut */
             font-weight: 800;
-            font-size: 2.5rem; /* Daha büyük ve net */
             text-transform: uppercase;
-            letter-spacing: 5px;
-            border: 2px solid var(--accent);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+            letter-spacing: 15px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 20px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1), inset 0 0 20px rgba(0, 242, 255, 0.1);
         }
 
-        .access-btn:hover {
-            background: var(--accent);
-            color: var(--bg);
-            transform: scale(1.1);
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);
-            letter-spacing: 8px;
+        .main-button:hover {
+            transform: scale(1.05) translateY(-10px);
+            background: var(--neon-blue);
+            color: var(--bg-color);
+            box-shadow: 0 0 80px rgba(0, 242, 255, 0.6);
+            letter-spacing: 20px;
         }
 
-        /* Durum Çubuğu */
-        .status {
-            margin-top: 20px;
-            font-family: 'VT323', monospace;
-            color: #444;
+        /* Alt Durum Yazısı */
+        .footer-status {
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.2);
             font-size: 1.2rem;
-            letter-spacing: 2px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
         }
 
-        .status span {
-            color: #00ff00;
-            animation: pulse 1s infinite;
+        .footer-status span {
+            color: #00ff88;
+            font-weight: 800;
         }
 
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
+        /* Animasyonlar */
+        @keyframes pulseBg {
+            from { transform: scale(1); opacity: 0.5; }
+            to { transform: scale(1.2); opacity: 0.8; }
         }
 
+        /* Mobil Uyumluluk */
+        @media (max-width: 768px) {
+            .header-text { font-size: 1.2rem; letter-spacing: 5px; }
+            .main-button { font-size: 2rem; padding: 25px 40px; letter-spacing: 5px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="logo-container">
-        <div class="main-logo">FATBOK</div>
-    </div>
+    <h1 class="header-text">GÜNCEL ADRES İÇİN TIKLAYIN</h1>
 
-    <a href="https://fatboktv.netlify.app" class="access-btn">
+    <a href="https://fatboktv.netlify.app" class="main-button">
         FATBOK TV
     </a>
 
-    <div class="status">SERVER STATUS: <span>ONLINE</span></div>
+    <p class="footer-status">SUNUCU DURUMU: <span>AKTİF</span></p>
 
 </body>
 </html>
